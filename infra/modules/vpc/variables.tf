@@ -18,7 +18,7 @@ variable "subnet_names" {
     description = "Names for the VPC Subnets"
 }
 
-variable "subnets_cidrs"{
+variable "subnet_cidrs"{
     type = list(string)
     description = "Cidr ranges for the Subnets"
 }
@@ -31,4 +31,5 @@ variable "igw_name"{
 variable "igw_cidr"{
     type = string
     description = "CIDR block for the Internet Gateway"
+    default = "0.0.0.0/0"
 }
