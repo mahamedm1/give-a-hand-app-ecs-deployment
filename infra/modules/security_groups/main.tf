@@ -1,10 +1,10 @@
-resource "aws_security_group" "main" {
-  name        = var.sg_name
+resource "aws_security_group" "alb" {
+  name        = var.alb_sg_name
   description = "Security group for our ALB"
   vpc_id      = var.vpc_id
 
   tags = {
-    Name = var.sg_name
+    Name = var.alb_sg_name
   }
 }
 
@@ -17,11 +17,18 @@ resource "aws_vpc_security_group_ingress_rule" "https" {
 }
 
 
-
-
-
 resource "aws_vpc_security_group_egress_rule" "allow_all_traffic_ipv4" {
   security_group_id = aws_security_group.main.id
   cidr_ipv4         = "0.0.0.0/0"
   ip_protocol       = "-1" # semantically equivalent to all ports
+}
+
+resource "aws_security_group" "ecs" {
+  name        = var.ecs_sg_namesg_name
+  description = "Security group for our ALB"
+  vpc_id      = var.vpc_id
+
+  tags = {
+    Name = var.ecs_sg_name
+  }
 }

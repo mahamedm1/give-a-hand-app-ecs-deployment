@@ -4,9 +4,14 @@ variable "vpc_id" {
 }
 
 
-variable "sg_name" {
+variable "alb_sg_name" {
   type        = string
-  description = "Security Group name"
+  description = "Security Group name ALB"
+}
+
+variable "ecs_sg_name" {
+  type        = string
+  description = "Security Group name for ECS"
 }
 
 variable "https_cidr" {
