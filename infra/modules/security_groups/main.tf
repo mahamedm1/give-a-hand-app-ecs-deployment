@@ -19,7 +19,7 @@ resource "aws_vpc_security_group_ingress_rule" "https" {
 
 resource "aws_vpc_security_group_egress_rule" "alb" {
   security_group_id = aws_security_group.alb.id
-  cidr_ipv4         = "0.0.0.0/0"
+  cidr_ipv4         = var.egress_cidr
   ip_protocol       = "-1" # semantically equivalent to all ports
   ports             = "80"
 }
@@ -44,6 +44,6 @@ resource "aws_vpc_security_group_ingress_rule" "ecs" {
 
 resource "aws_vpc_security_group_egress_rule" "ecs" {
   security_group_id = aws_security_group.ecs.id
-  cidr_ipv4         = "0.0.0.0/0"
+  cidr_ipv4         = var.egress_cidr
   ip_protocol       = "-1" # semantically equivalent to all ports
 }

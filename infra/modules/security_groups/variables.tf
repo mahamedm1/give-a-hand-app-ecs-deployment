@@ -16,5 +16,10 @@ variable "ecs_sg_name" {
 
 variable "https_cidr" {
   type        = string
-  description = "Inbound CIDR addresses accepted by the ALB"
+  description = "Inbound CIDR range accepted by the ALB"
+}
+
+variable "egress_cidr" {
+  type = string
+  description = ""
 }
