@@ -21,5 +21,11 @@ module "security_groups" {
 
   alb_sg_name = local.alb_sg_name
   ecs_sg_name = local.ecs_sg_name
-
 }
+
+module "ecr" {
+  source = "./modules/ecr"
+
+  ecr_name = local.ecr_name
+}
+
