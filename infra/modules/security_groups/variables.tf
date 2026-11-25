@@ -17,9 +17,11 @@ variable "ecs_sg_name" {
 variable "https_cidr" {
   type        = string
   description = "Inbound CIDR range accepted by the ALB"
+  default = "0.0.0.0/0"
 }
 
 variable "egress_cidr" {
   type = string
-  description = ""
+  description = "Outbound CIDR range from ALB to ECS"
+  default = "0.0.0.0/0"
 }
