@@ -1,6 +1,6 @@
-variable "vpc_name" {
-  type        = string
-  description = "Name of the VPC"
+variable "project_name" {
+  type = string
+  description = "Name of the project"
 }
 
 variable "vpc_cidr_block" {
@@ -13,22 +13,13 @@ variable "availability_zones" {
   description = "Availability Zones for the VPC subnets"
 }
 
-variable "subnet_names" {
-  type        = list(string)
-  description = "Names for the VPC subnets"
-}
-
 variable "subnet_cidrs" {
   type        = list(string)
   description = "CIDR ranges for the subnets"
 }
 
-variable "igw_name" {
+variable "https_cidr" {
   type        = string
-  description = "Name for the Internet Gateway"
+  description = "Inbound CIDR addresses accepted by the ALB"
 }
 
-variable "route_table_name" {
-  type        = string
-  description = "Name for the route table"
-}
