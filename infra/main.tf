@@ -6,10 +6,10 @@ module "vpc"{
   source = "./modules/vpc"
 
   vpc_name = var.vpc_name
-  vpc_cidr_block = var.vpc_cidr_block
-  vpc_availability_zones = var.vpc_availability_zones
+  vpc_cidr_block = var.cidr_block
+  availability_zones = var.availability_zones
 
-  subnet_name = var.subnet_names
+  subnet_names = var.subnet_names
   subnet_cidrs = var.subnet_cidrs
 
   igw_name = var.igw_name
