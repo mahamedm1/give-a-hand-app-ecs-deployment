@@ -2,8 +2,8 @@ resource "aws_lb" "alb" {
   name               = var.alb_name
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.alb.id]
-  subnets            = [for subnet in aws_subnet.public : subnet.id]
+  security_groups    = [var.alb_sg_id]
+  subnets            = var.subnet_ids
 
   enable_deletion_protection = true
 
