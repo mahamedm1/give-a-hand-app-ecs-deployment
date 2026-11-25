@@ -10,15 +10,25 @@ variable "vpc_cidr_block"{
 
 variable "availability_zones" {
     type = list(string)
-    description = "Availability Zones for the VPC subnets"
+    description = "Availability Zones for the VPC Subnets"
 }
 
 variable "subnet_names" {
     type = list(string)
-    description = "Names for the VPC subnets"
+    description = "Names for the VPC Subnets"
 }
 
 variable "subnets_cidrs"{
     type = list(string)
-    description = "Cidr ranges for the subnets"
+    description = "Cidr ranges for the Subnets"
+}
+
+variable "igw_name"{
+    type = string
+    description = "Name for the Internet Gateway "
+}
+
+variable "igw_cidr"{
+    type = string
+    description = "CIDR block for the Internet Gateway"
 }
