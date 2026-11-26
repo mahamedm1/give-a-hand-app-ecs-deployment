@@ -26,6 +26,5 @@ resource "aws_lb_target_group" "ip" {
   vpc_id      = var.vpc_id
 }
 
-resource "aws_vpc" "main" {
-  cidr_block = var.vpc_cidr_block
-}
+
+
