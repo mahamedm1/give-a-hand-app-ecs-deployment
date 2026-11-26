@@ -23,3 +23,14 @@ variable "https_cidr" {
   description = "Inbound CIDR addresses accepted by the ALB"
 }
 
+variable "alb_arn" {
+  type        = string
+  description = "ARN for the VPC"
+}
+
+variable "target_group_arn" {
+  type        = string
+  description = "ARN for Target Group"
+}
+
+

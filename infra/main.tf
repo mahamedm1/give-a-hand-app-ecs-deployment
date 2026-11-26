@@ -38,9 +38,10 @@ module "alb" {
   alb_name       = local.alb_name
   alb_sg_id      = module.security_groups.alb_security_group_id
   alb_subnet_ids = module.vpc.subnet_ids
+  alb_arn = var.alb_arn
 
   target_group_name = local.target_group_name
-
+  target_group_arn = var.target_group_arn
 
 }
 
