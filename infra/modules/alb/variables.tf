@@ -18,17 +18,8 @@ variable "alb_subnet_ids" {
   description = "ID of the subnets"
 }
 
-variable "alb_arn" {
-  type        = string
-  description = "ARN for the VPC"
-}
-
 variable "target_group_name" {
   type        = string
   description = "Name of Target Group"
 }
 
-variable "target_group_arn" {
-  type        = string
-  description = "ARN for the Target Group"
-}
