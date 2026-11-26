@@ -3,7 +3,6 @@ variable "vpc_id" {
   description = "ID of our VPC"
 }
 
-
 variable "alb_sg_name" {
   type        = string
   description = "Security Group name ALB"
