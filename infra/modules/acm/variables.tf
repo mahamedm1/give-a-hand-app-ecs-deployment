@@ -1,6 +1,6 @@
-variable "alb_dns_name" {
+variable "domain_name" {
     type = string
-    description = "Name for the ALB DNS name"
+    description = "Name for the Domain"
 }
 
 variable "aws_acm_certificate_name" {
@@ -12,4 +12,5 @@ variable "var.validation_method" {
     type = string
     description = "Method to validate ACM certificate"
 }
+
 
