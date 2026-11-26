@@ -33,11 +33,15 @@ module "ecr" {
 module "alb" {
   source = "./modules/alb"
 
+  vpc_id = module.vpc.vpc_id
+  vpc_cidr_block = var.vpc_cidr_block
+
   alb_name = local.alb_name
   alb_sg_id = module.security_groups.alb_security_group_id
   alb_subnet_ids = module.vpc.subnet_ids
-  vpc_id = module.vpc_id
-  vpc_cidr_block = module.vpc.vpc_cidr_block
+
+  target_group_name = local.target_group_name
+
 
 }
 

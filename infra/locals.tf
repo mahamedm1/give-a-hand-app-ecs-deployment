@@ -7,7 +7,7 @@ locals {
   ecs_sg_name      = "${var.project_name}-ecs-sg"
   ecr_name         = "${var.project_name}-ecr-repo"
   alb_name         = "${var.project_name}-ecs-alb"
-
+  target_group_name = "${var.project_name}-target-group"
   subnet_names = [
     for az in var.availability_zones : "${var.project_name}-subnet-${az}"
   ]

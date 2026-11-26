@@ -19,7 +19,7 @@ resource "aws_lb" "alb" {
 }
 
 resource "aws_lb_target_group" "ip" {
-  name        = "target_group_name"
+  name        = var.target_group_name
   port        = 80
   protocol    = "HTTP"
   target_type = "ip"
@@ -27,5 +27,5 @@ resource "aws_lb_target_group" "ip" {
 }
 
 resource "aws_vpc" "main" {
-  cidr_block = vpc_cidr_block
+  cidr_block = var.vpc_cidr_block
 }
