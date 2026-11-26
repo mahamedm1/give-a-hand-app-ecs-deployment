@@ -21,11 +21,10 @@ resource "aws_vpc_security_group_egress_rule" "alb" {
   security_group_id = aws_security_group.alb.id
   cidr_ipv4         = var.egress_cidr
   ip_protocol       = "-1" # semantically equivalent to all ports
-  ports             = "80"
 }
 
 resource "aws_security_group" "ecs" {
-  name        = var.ecs_sg_namesg_name
+  name        = var.ecs_sg_name
   description = "Security group for our ALB"
   vpc_id      = var.vpc_id
 
