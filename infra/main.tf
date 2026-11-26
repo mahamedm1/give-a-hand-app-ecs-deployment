@@ -18,6 +18,7 @@ module "vpc" {
 
 module "security_groups" {
   source = "./modules/security_groups"
+  vpc_id =  module.vpc.vpc_id
 
   alb_sg_name = local.alb_sg_name
   ecs_sg_name = local.ecs_sg_name
@@ -27,5 +28,15 @@ module "ecr" {
   source = "./modules/ecr"
 
   ecr_name = local.ecr_name
+}
+
+module "alb" {
+  source = "./modules/alb"
+
+  alb_name = local.alb_name
+  alb_sg_id = module.security_groups.alb_security_group_id
+  alb_subnet_ids = module.security_groups.subnet_ids
+
+
 }
 
