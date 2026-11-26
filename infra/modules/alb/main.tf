@@ -3,7 +3,7 @@ resource "aws_lb" "alb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [var.alb_sg_id]
-  public_subnets            = var.public_subnet_ids
+  public_subnets     = var.public_subnet_ids
 
   enable_deletion_protection = true
 
@@ -27,7 +27,7 @@ resource "aws_lb_target_group" "ip" {
 }
 
 resource "aws_lb_listener" "alb" {
-  load_balancer_arn = aws_lb.alb.arn 
+  load_balancer_arn = aws_lb.alb.arn
   port              = "443"
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"

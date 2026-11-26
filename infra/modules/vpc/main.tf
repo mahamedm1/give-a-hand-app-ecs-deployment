@@ -41,14 +41,14 @@ resource "aws_internet_gateway" "gw" {
 }
 
 resource "aws_eip" "main" {
-  domain   = var.vpc_name
+  domain = var.vpc_name
 }
 
 resource "aws_nat_gateway" "nat" {
   count = length(var.public_subnet_names)
- 
+
   allocation_id = aws_eip.main.id
-  subnet_id     =  aws_subnet.public[count.index]
+  subnet_id     = aws_subnet.public[count.index]
 
   tags = {
     Name = var.nat_gateway_name
@@ -58,7 +58,7 @@ resource "aws_nat_gateway" "nat" {
 }
 
 resource "aws_route_table" "default" {
-  count = length(var.public_subnet_names)
+  count  = length(var.public_subnet_names)
   vpc_id = aws_vpc.main.id
 
   route {
@@ -72,14 +72,14 @@ resource "aws_route_table" "default" {
 }
 
 resource "aws_route_table" "nat" {
-  count = length(var.public_subnet_names)
+  count  = length(var.public_subnet_names)
   vpc_id = aws_vpc.main.id
 
   route {
     cidr_block = var.default_route
     gateway_id = aws_nat_gateway.nat[count.index]
   }
-  
+
   tags = {
     Name = var.nat_route_table_name
   }
