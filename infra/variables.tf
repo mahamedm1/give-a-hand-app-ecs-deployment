@@ -23,6 +23,12 @@ variable "https_cidr" {
   description = "Inbound CIDR addresses accepted by the ALB"
 }
 
+variable "public_subnet_cidrs" {
+  type        = list(string)
+  description = "Cidr ranges for the Subnets"
+}
 
-
-
+variable "private_subnet_cidrs" {
+  type        = list(string)
+  description = "Cidr ranges for the Private Subnets"
+}

@@ -13,7 +13,7 @@ variable "alb_sg_id" {
   description = "ID of the ALB Security Group"
 }
 
-variable "alb_subnet_ids" {
+variable "public_subnet_ids" {
   type        = list(string)
   description = "ID of the subnets"
 }
@@ -22,4 +22,3 @@ variable "target_group_name" {
   type        = string
   description = "Name of Target Group"
 }
-
