@@ -22,3 +22,8 @@ variable "vpc_cidr_block" {
   type        = string
   description = "Cidr block range for the VPC"
 }
+
+variable "target_group_name" {
+    type = string
+    description = "Name of Target Group"
+}
