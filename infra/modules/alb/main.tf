@@ -17,3 +17,15 @@ resource "aws_lb" "alb" {
     Name = var.alb_name
   }
 }
+
+resource "aws_lb_target_group" "ip" {
+  name        = "target_group_name"
+  port        = 80
+  protocol    = "HTTP"
+  target_type = "ip"
+  vpc_id      = var.vpc_id
+}
+
+resource "aws_vpc" "main" {
+  cidr_block = vpc_cidr_block
+}
