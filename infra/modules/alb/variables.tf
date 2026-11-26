@@ -8,7 +8,7 @@ variable "alb_sg_id" {
     description = "ID of the ALB Security Group"
 }
 
-variable "subnet_ids" {
+variable "alb_subnet_ids" {
     type = list(string)
     description = "ID of the subnets"
 }
