@@ -9,9 +9,9 @@ resource "aws_acm_certificate" "certificate" {
 }
 
 resource "aws_route53_record" "validation" {
-  name            = aws_acm_certificate.certificate.resource_record_name
-  records         = [aws_acm_certificate.certificate.resource_record_value]
-  type            = aws_acm_certificate.certificate.resource_record_type
+  name            = one(aws_acm_certificate.certificate.domain_validation_options).resource_record_name
+  records         = [one(aws_acm_certificate.certificate).resource_record_value]
+  type            = one(aws_acm_certificate.certificate.domain_validation_options).resource_record_type
   allow_overwrite = true
   ttl             = 60
   zone_id         = data.aws_route53_zone.certificate.zone_id
