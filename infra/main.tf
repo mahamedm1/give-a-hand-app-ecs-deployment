@@ -49,6 +49,6 @@ module "alb" {
 module "acm" {
   source = "./modules/acm"
 
-  domain_name = locals.domain_name
+  domain_name       = locals.domain_name
   validation_method = var.validation_method
 }

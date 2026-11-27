@@ -42,3 +42,9 @@ variable "acm_certificate_name" {
   type        = string
   description = "Name for the ACM certification"
 }
+
+variable "zone_name" {
+  type        = string
+  description = "Name of our Route53 zone"
+}
+

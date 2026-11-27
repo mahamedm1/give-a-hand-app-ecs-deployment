@@ -13,3 +13,8 @@ variable "validation_method" {
   description = "Method to validate ACM certificate"
 }
 
+variable "zone_name" {
+  type        = string
+  description = "Name of our Route53 zone"
+}
+
