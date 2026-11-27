@@ -10,6 +10,7 @@ locals {
   ecr_name                 = "${var.project_name}-ecr-repo"
   alb_name                 = "${var.project_name}-ecs-alb"
   target_group_name        = "${var.project_name}-target-group"
+  certificate_name         = "${var.project_name}-acm-certificate-name"
 
   public_subnet_names = [
     for az in var.availability_zones : "${var.project_name}-public-subnet-${az}"

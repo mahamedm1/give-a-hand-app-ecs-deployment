@@ -32,3 +32,13 @@ variable "private_subnet_cidrs" {
   type        = list(string)
   description = "Cidr ranges for the Private Subnets"
 }
+
+variable "domain_name" {
+  type        = string
+  description = "Name for the Domain"
+}
+
+variable "acm_certificate_name" {
+  type        = string
+  description = "Name for the ACM certification"
+}

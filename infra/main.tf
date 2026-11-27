@@ -46,3 +46,9 @@ module "alb" {
   target_group_name = local.target_group_name
 }
 
+module "acm" {
+  source = "./modules/acm"
+
+  domain_name = locals.domain_name
+  validation_method = var.validation_method
+}
