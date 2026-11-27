@@ -13,11 +13,6 @@ variable "availability_zones" {
   description = "Availability Zones for the VPC subnets"
 }
 
-variable "subnet_cidrs" {
-  type        = list(string)
-  description = "CIDR ranges for the subnets"
-}
-
 variable "https_cidr" {
   type        = string
   description = "Inbound CIDR addresses accepted by the ALB"
@@ -35,16 +30,11 @@ variable "private_subnet_cidrs" {
 
 variable "domain_name" {
   type        = string
-  description = "Name for the Domain"
+  description = "Name of the domain"
 }
 
-variable "acm_certificate_name" {
+variable "validation_method" {
   type        = string
-  description = "Name for the ACM certification"
-}
-
-variable "zone_name" {
-  type        = string
-  description = "Name of our Route53 zone"
+  description = "Method to validate ACM certificate"
 }
 

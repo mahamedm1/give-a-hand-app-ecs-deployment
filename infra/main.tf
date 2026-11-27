@@ -44,11 +44,22 @@ module "alb" {
   public_subnet_ids = module.vpc.public_subnet_ids
 
   target_group_name = local.target_group_name
+
+  certificate_arn = module.acm.certificate_arn
 }
 
 module "acm" {
   source = "./modules/acm"
 
-  domain_name       = locals.domain_name
-  validation_method = var.validation_method
+  domain_name          = var.domain_name
+  validation_method    = var.validation_method
+  acm_certificate_name = local.certificate_name
+
+  zone_name = local.zone_name
+
+}
+
+output "name_servers" {
+  description = "Route 53 nameservers for Cloudflare delegation"
+  value       = module.acm.name_servers
 }

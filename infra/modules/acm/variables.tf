@@ -15,6 +15,5 @@ variable "validation_method" {
 
 variable "zone_name" {
   type        = string
-  description = "Name of our Route53 zone"
+  description = "Name of Route53 zone"
 }
-

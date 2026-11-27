@@ -3,15 +3,15 @@ resource "aws_lb" "alb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [var.alb_sg_id]
-  public_subnets     = var.public_subnet_ids
+  subnets     = var.public_subnet_ids
 
   enable_deletion_protection = true
 
-  access_logs {
+ /* access_logs {
     bucket  = aws_s3_bucket.lb_logs.id
     prefix  = "aws-alb"
     enabled = true
-  }
+  }*/
 
   tags = {
     Name = var.alb_name
@@ -31,8 +31,7 @@ resource "aws_lb_listener" "alb" {
   port              = "443"
   protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"
-  certificate_arn   = "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4"
-
+  certificate_arn   = var.certificate_arn
   default_action {
     type             = "forward"
     target_group_arn = aws_lb_target_group.ip.arn

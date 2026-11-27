@@ -22,3 +22,8 @@ variable "target_group_name" {
   type        = string
   description = "Name of Target Group"
 }
+
+variable "certificate_arn" {
+  type = string
+  description = "ARN for our validated certificate"
+}
