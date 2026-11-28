@@ -1,6 +1,6 @@
 output "acm_certificate_arn" {
   description = "ARN for my ACM certificate"
-  value       = aws_acm_certificate.certificate.arn
+  value       = aws_acm_certificate_validation.validation.certificate_arn
 }
 
 output "zone_id" {
@@ -13,7 +13,3 @@ output "name_servers" {
   value       = aws_route53_zone.dev.name_servers
 }
 
-output "certificate_arn" {
-  description = "ARN of the validated ACM certificate"
-  value = aws_acm_certificate.certificate.arn
-}

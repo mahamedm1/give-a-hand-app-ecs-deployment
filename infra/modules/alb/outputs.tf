@@ -5,5 +5,5 @@ output "alb_dns_name" {
 
 output "target_group_arn" {
   description = "ARN for the Target Group"
-  value       = aws_lb_target_group.ip.arn
+  value       = aws_lb_target_group.tg.arn
 }

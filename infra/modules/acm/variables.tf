@@ -17,3 +17,4 @@ variable "zone_name" {
   type        = string
   description = "Name of Route53 zone"
 }
+

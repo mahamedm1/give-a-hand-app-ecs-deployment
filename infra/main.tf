@@ -45,7 +45,7 @@ module "alb" {
 
   target_group_name = local.target_group_name
 
-  certificate_arn = module.acm.certificate_arn
+  certificate_arn = module.acm.acm_certificate_arn
 }
 
 module "acm" {
@@ -56,6 +56,7 @@ module "acm" {
   acm_certificate_name = local.certificate_name
 
   zone_name = local.zone_name
+
 
 }
 

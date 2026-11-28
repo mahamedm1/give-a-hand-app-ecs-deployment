@@ -3,11 +3,11 @@ resource "aws_lb" "alb" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [var.alb_sg_id]
-  subnets     = var.public_subnet_ids
+  subnets            = var.public_subnet_ids
 
   enable_deletion_protection = false
 
- /* access_logs {
+  /* access_logs {
     bucket  = aws_s3_bucket.lb_logs.id
     prefix  = "aws-alb"
     enabled = true
@@ -18,7 +18,7 @@ resource "aws_lb" "alb" {
   }
 }
 
-resource "aws_lb_target_group" "ip" {
+resource "aws_lb_target_group" "tg" {
   name        = var.target_group_name
   port        = 80
   protocol    = "HTTP"
@@ -47,7 +47,7 @@ resource "aws_lb_listener" "alb" {
   certificate_arn   = var.certificate_arn
   default_action {
     type             = "forward"
-    target_group_arn = aws_lb_target_group.ip.arn
+    target_group_arn = aws_lb_target_group.tg.arn
   }
 }
 
