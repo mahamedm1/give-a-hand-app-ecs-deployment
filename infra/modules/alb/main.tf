@@ -5,7 +5,7 @@ resource "aws_lb" "alb" {
   security_groups    = [var.alb_sg_id]
   subnets     = var.public_subnet_ids
 
-  enable_deletion_protection = true
+  enable_deletion_protection = false
 
  /* access_logs {
     bucket  = aws_s3_bucket.lb_logs.id
@@ -24,6 +24,19 @@ resource "aws_lb_target_group" "ip" {
   protocol    = "HTTP"
   target_type = "ip"
   vpc_id      = var.vpc_id
+
+  health_check {
+    enabled             = true
+    path                = "/"
+    protocol            = "HTTP"
+    port                = "traffic-port"
+    interval            = 30
+    timeout             = 5
+    healthy_threshold   = 2
+    unhealthy_threshold = 3
+    matcher             = "200"
+  }
+
 }
 
 resource "aws_lb_listener" "alb" {

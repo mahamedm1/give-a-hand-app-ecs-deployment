@@ -15,7 +15,7 @@ resource "aws_route53_zone" "dev" {
   }
 }
 
-resource "aws_route53_record" "validation" {
+resource "aws_route53_record" "dns" {
   name            = one(aws_acm_certificate.certificate.domain_validation_options).resource_record_name
   records         = [one(aws_acm_certificate.certificate.domain_validation_options).resource_record_value]
   type            = one(aws_acm_certificate.certificate.domain_validation_options).resource_record_type
@@ -26,8 +26,11 @@ resource "aws_route53_record" "validation" {
 
 resource "aws_acm_certificate_validation" "validation" {
   certificate_arn         = aws_acm_certificate.certificate.arn
-  validation_record_fqdns = [aws_route53_record.validation.fqdn]
+  validation_record_fqdns = [aws_route53_record.dns.fqdn]
 }
 
+resource "aws_lb_listener" "listener" {
 
+  certificate_arn = aws_acm_certificate_validation.validation.certificate_arn
+}
 
